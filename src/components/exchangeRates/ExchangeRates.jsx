@@ -1,12 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { useGetExchangeDataQuery } from "../../features/api/marketDataApiSlice";
-import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
-import {
-  setBuyCurrency,
-  setSellCurrency,
-} from "../../features/exchangeCurrenciesSlice";
 import { useGetAllCurrenciesQuery } from "../../features/api/CurrencyApiSlice";
 const Container = styled.div`
   width: 50%;
@@ -50,10 +44,8 @@ const Left = styled.div`
   flex: 50%;
 `;
 const DropDownContainer = styled.div`
-  /* display: ${(props) => props.variant === "sell" && "flex"}; */
   display: flex;
   align-items: center;
-  /* justify-content: space-evenly; */
   width: 100%;
 `;
 const Title = styled.p`
@@ -69,7 +61,6 @@ const DropDown = styled.div`
   flex: 8;
   height: 50px;
   width: 100%;
-  /* width: clamp(100px, 50%, 100px); */
 `;
 const Select = styled.select`
   min-width: 50px;
@@ -193,8 +184,8 @@ const ExchangeRates = () => {
             <DropDownContainer>
               <Title variant="sell">Sell</Title>
               <DropDown variant="sell">
-                <Select onChange={handleSellChange}>
-                  <Option disabled selected hidden>
+                <Select onChange={handleSellChange} value={sellCurrency}>
+                  <Option value="sellCurrency" disabled>
                     BTC
                   </Option>
                   {currencyList &&
@@ -209,8 +200,8 @@ const ExchangeRates = () => {
             <DropDownContainer>
               <Title variant="buy">Buy</Title>
               <DropDown variant="buy">
-                <Select onChange={handleBuyChange}>
-                  <Option disabled selected hidden>
+                <Select onChange={handleBuyChange} value={buyCurrency}>
+                  <Option value="sellCurrency" disabled>
                     BTC
                   </Option>
                   {currencyList &&

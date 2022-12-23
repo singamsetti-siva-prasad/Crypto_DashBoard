@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { useGetMarketsQuery } from "../../features/api/coinApiSlice";
-import CoinCard from "../coinCardSidebar/CoinCard";
+import CoinCard from "../coinCard/CoinCard";
 
 const Container = styled.div`
   height: 100%;
@@ -25,8 +25,6 @@ const Wrapper = styled.div`
 
 const Title = styled.p`
   flex: 25%;
-  /* font-size: calc(0.8rem + 1vw); */
-
   font-size: clamp(1rem, 1vw + 0.5rem, 1.5rem);
   font-weight: 800;
   margin: 3%;

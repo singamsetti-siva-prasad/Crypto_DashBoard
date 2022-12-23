@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import { useDispatch } from "react-redux";
 import { setCryptoCurrency } from "../../features/cryptoCurrencyDropDownSlice";
@@ -26,12 +26,13 @@ const Select = styled.select`
 const Option = styled.option`
   text-transform: uppercase;
   font-weight: 400;
-
-  /* font-style: ${(props) =>
-    props.variant === "head" ? "italic" : "normal"}; */
 `;
 
 const CryptoCurrencyDropDown = () => {
+  const cryptoCurrency = useSelector(
+    (state) => state.selectCryptoCurrency.selectedcryptoCurrency
+  );
+  console.log("cryptoCurrency", cryptoCurrency);
   const dispatch = useDispatch();
 
   const { data: coinList, isFetching } = useGetAllCoinsQuery();
@@ -39,14 +40,11 @@ const CryptoCurrencyDropDown = () => {
   const handleChange = (e) => {
     dispatch(setCryptoCurrency(e.target.value));
   };
-  // const selectedCoin = useSelector(
-  //   (state) => state.selectCryptoCurrency.selectedcryptoCurrency
-  // );
-  // console.log(selectedCoin);
+
   return (
     <Container>
-      <Select onChange={handleChange}>
-        <Option disabled selected hidden variant="head">
+      <Select onChange={handleChange} value={cryptoCurrency}>
+        <Option value="cryptoCurrency" disabled>
           Crypto Currency
         </Option>
         {coinList &&

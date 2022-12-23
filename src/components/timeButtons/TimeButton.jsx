@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { Dispatch } from "@reduxjs/toolkit";
 import { useDispatch } from "react-redux";
 import { setTime } from "../../features/timeSlice";
 import { useSelector } from "react-redux";

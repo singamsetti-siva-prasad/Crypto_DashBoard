@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ArrowDropDownOutlined from "@mui/icons-material/ArrowDropDownOutlined";
+import { useDispatch } from "react-redux";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -65,16 +66,6 @@ const Item = styled.li`
   }
 `;
 
-const ToolTip = styled.div`
-  width: fit-content;
-  height: fit-content;
-  display: none;
-  z-index: 9999;
-  &:hover {
-    display: block;
-  }
-`;
-
 const ListDropDown = ({ currencyList }) => {
   const dispatch = useDispatch();
   const handleClick = (e) => {
@@ -88,7 +79,7 @@ const ListDropDown = ({ currencyList }) => {
       <DropDown>
         <ButtonContainer>
           <Button onClick={() => setActive(!active)}>
-            CryptoCurrencyDropDown
+            Crypto Currency
             <Icon>
               <ArrowDropDownOutlined />
             </Icon>

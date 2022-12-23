@@ -1,4 +1,4 @@
-import React, { useLayoutEffect } from "react";
+import React from "react";
 import { useGetMarketDataQuery } from "../../features/api/marketDataApiSlice";
 import moment from "moment/moment";
 import { useSelector } from "react-redux";
@@ -48,10 +48,7 @@ function LineChart() {
     coin: selectedCoin,
     currency: selectedCurrency,
     time: selectedTime,
-    // interval: setInterval(selectedTime),
   });
-
-  // console.log(useGetMarketDataQuery());
 
   if (isFetching) return "Loading....";
   console.log(cryptoData);
@@ -78,7 +75,7 @@ function LineChart() {
     },
     title: {
       display: true,
-      text: "Chart.js Line Chart",
+      text: "Line Chart",
     },
     datalabels: {
       font: function (context) {
@@ -105,7 +102,6 @@ function LineChart() {
       },
     ],
   };
-
   return (
     <Container>
       <Line data={data} options={options} />

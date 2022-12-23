@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import { useDispatch } from "react-redux";
 import { setCurrency } from "../../features/currencyDropDownSlice";
+import { useSelector } from "react-redux";
 import { useGetAllCurrenciesQuery } from "../../features/api/CurrencyApiSlice";
 
 const Container = styled.div`
@@ -29,6 +30,10 @@ const Option = styled.option`
 `;
 
 const CurrencyDropDown = () => {
+  const currency = useSelector(
+    (state) => state.selectCurrency.selectedCurrency
+  );
+  console.log("currency", currency);
   const dispatch = useDispatch();
   const handleChange = (e) => {
     dispatch(setCurrency(e.target.value));
@@ -38,8 +43,8 @@ const CurrencyDropDown = () => {
 
   return (
     <Container>
-      <Select onChange={handleChange}>
-        <Option disabled selected hidden>
+      <Select onChange={handleChange} value={currency}>
+        <Option value="currency" disabled>
           Currency
         </Option>
         {currencyList &&

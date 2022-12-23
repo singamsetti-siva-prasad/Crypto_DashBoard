@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -19,14 +19,15 @@ const Select = styled.select`
 const Option = styled.option``;
 
 const ChartTypeDropDown = () => {
+  const [first, setfirst] = useState("");
   return (
     <Container>
-      <Select>
-        <Option disabled selected hidden>
+      <Select value={first} onChange={(e) => setfirst(e.target.value)}>
+        <Option value="first" disabled>
           Chart type
         </Option>
-        <Option value={"bar_chart_horizontal"}>Bar chart horizontal</Option>
         <Option value={"line_chart"}>Line</Option>
+        <Option value={"bar_chart_horizontal"}>Bar chart horizontal</Option>
         <Option value={"bar_chart_vertical"}>Bar chart Vertical</Option>
       </Select>
     </Container>
