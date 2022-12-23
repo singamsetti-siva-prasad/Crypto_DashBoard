@@ -1,6 +1,5 @@
 {
   "name": "crypto_dashboard",
-  "homepage": "https://sivaprasads.github.io/Crypto_Dashboard",
   "version": "0.1.0",
   "private": "false",
   "dependencies": {
@@ -12,19 +11,15 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
-    "axios": "^1.2.1",
     "bootstrap": "^5.2.3",
     "chart.js": "^4.0.1",
     "chartjs-plugin-datalabels": "^2.2.0",
-    "date-fns": "^2.29.3",
     "full-icu": "^1.5.0",
     "millify": "^5.0.1",
     "moment": "^2.29.4",
     "react": "^18.2.0",
-    "react-bootstrap": "^2.7.0",
     "react-chartjs-2": "^5.0.1",
     "react-dom": "^18.2.0",
-    "react-loading-skeleton": "^3.1.0",
     "react-redux": "^8.0.5",
     "react-scripts": "5.0.1",
     "styled-components": "^5.3.6",
@@ -32,8 +27,6 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -55,8 +48,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "gh-pages": "^4.0.0"
   }
 }
