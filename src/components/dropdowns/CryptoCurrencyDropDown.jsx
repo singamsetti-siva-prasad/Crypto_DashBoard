@@ -31,7 +31,7 @@ const CryptoCurrencyDropDown = () => {
   const cryptoCurrency = useSelector(
     (state) => state.selectCryptoCurrency.selectedcryptoCurrency
   );
-  console.log("cryptoCurrency", cryptoCurrency);
+
   const dispatch = useDispatch();
 
   const { data: coinList, isFetching } = useGetAllCoinsQuery();

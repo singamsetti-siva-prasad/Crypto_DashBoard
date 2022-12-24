@@ -29,7 +29,7 @@ const TimeButton = () => {
   };
   const dispatch = useDispatch();
   const selectedTime = useSelector((state) => state.selectTime.selectedTime);
-  console.log(selectedTime);
+
   return (
     <Container>
       <Button value={"1"} onClick={handleClick}>

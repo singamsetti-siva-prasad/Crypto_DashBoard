@@ -34,7 +34,7 @@ const CurrencyDropDown = () => {
   const currency = useSelector(
     (state) => state.selectCurrency.selectedCurrency
   );
-  console.log("currency", currency);
+
   const dispatch = useDispatch();
   const handleChange = (e) => {
     dispatch(setCurrency(e.target.value));

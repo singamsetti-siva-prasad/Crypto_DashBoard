@@ -145,9 +145,6 @@ const ExchangeRates = () => {
   const [sellCurrency, setSellCurrency] = useState("btc");
   const [buyCurrency, setBuyCurrency] = useState("btc");
   const [convertedValue, setConvertedValue] = useState(" ");
-  console.log(`enteredValue ${enteredValue}`);
-  console.log(`sellValue ${sellCurrency.currency}`);
-  console.log(`buyValue ${buyCurrency}`);
 
   const handleSellChange = (e) => {
     setSellCurrency(e.target.value);
@@ -160,7 +157,6 @@ const ExchangeRates = () => {
   const { data: exchangeData, isFetching } = useGetExchangeDataQuery();
 
   if (isFetching) return "Loading......";
-  console.log(exchangeData.rates[sellCurrency].value);
 
   function ConversionFormula(enteredValue) {
     const convertedValue = (
@@ -168,7 +164,6 @@ const ExchangeRates = () => {
         parseFloat(exchangeData && exchangeData.rates[buyCurrency].value)) /
       parseFloat(exchangeData && exchangeData?.rates[sellCurrency].value)
     ).toFixed(2);
-    console.log(convertedValue);
 
     return convertedValue;
   }

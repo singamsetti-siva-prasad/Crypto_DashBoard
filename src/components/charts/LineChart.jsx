@@ -55,7 +55,6 @@ function LineChart() {
     x: value[0],
     y: value[1],
   }));
-  console.log(chartData);
 
   const options = {
     responsive: true,

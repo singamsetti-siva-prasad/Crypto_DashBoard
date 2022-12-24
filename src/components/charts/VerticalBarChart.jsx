@@ -38,9 +38,6 @@ const VerticalBarChart = () => {
     (state) => state.selectCurrency.selectedCurrency
   );
   const selectedTime = useSelector((state) => state.selectTime.selectedTime);
-  console.log(selectedTime);
-  console.log(selectedCoin);
-  console.log(selectedCurrency);
 
   const { data: cryptoData, isFetching } = useGetMarketDataQuery({
     coin: selectedCoin,

@@ -38,7 +38,6 @@ const Sidebar = () => {
   const { data, isFetching } = useGetMarketsQuery();
   if (isFetching) return "Loading...";
 
-  console.log(data.coins);
   return (
     <Container>
       <Wrapper>
