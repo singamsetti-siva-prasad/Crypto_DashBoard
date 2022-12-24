@@ -58,7 +58,7 @@ const Searchbar = () => {
   return (
     <Container>
       <Input
-        placeholder="search coins"
+        placeholder="search Crypto Currencies"
         onChange={(e) => setSearchValue(e.target.value)}
       />
       <SearchOutPutContainer active={searchValue}>
