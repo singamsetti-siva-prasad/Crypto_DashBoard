@@ -1,25 +1,23 @@
 import React from "react";
 import { useGetMarketDataQuery } from "../../features/api/marketDataApiSlice";
 import moment from "moment/moment";
+import styled from "styled-components";
 import { useSelector } from "react-redux";
 import {
   Chart as ChartJS,
   CategoryScale,
   LinearScale,
-  PointElement,
-  LineElement,
+  BarElement,
   Title,
   Tooltip,
   Legend,
 } from "chart.js";
-import { Line } from "react-chartjs-2";
-import styled from "styled-components";
+import { Bar } from "react-chartjs-2";
 
 ChartJS.register(
   CategoryScale,
   LinearScale,
-  PointElement,
-  LineElement,
+  BarElement,
   Title,
   Tooltip,
   Legend
@@ -31,7 +29,7 @@ const Container = styled.div`
   box-shadow: 0px 10px 51px 0px rgba(0, 0, 0, 0.1);
 `;
 
-function LineChart() {
+const VerticalBarChart = () => {
   const selectedCoin = useSelector(
     (state) => state.selectCryptoCurrency.selectedcryptoCurrency
   );
@@ -40,13 +38,15 @@ function LineChart() {
     (state) => state.selectCurrency.selectedCurrency
   );
   const selectedTime = useSelector((state) => state.selectTime.selectedTime);
+  console.log(selectedTime);
+  console.log(selectedCoin);
+  console.log(selectedCurrency);
 
   const { data: cryptoData, isFetching } = useGetMarketDataQuery({
     coin: selectedCoin,
     currency: selectedCurrency,
     time: selectedTime,
   });
-
   if (isFetching) return "Loading....";
 
   const coinsData = cryptoData?.prices;
@@ -55,7 +55,6 @@ function LineChart() {
     x: value[0],
     y: value[1],
   }));
-  console.log(chartData);
 
   const options = {
     responsive: true,
@@ -67,10 +66,6 @@ function LineChart() {
         position: "top",
         align: "end",
       },
-    },
-    title: {
-      display: true,
-      text: "Line Chart",
     },
     datalabels: {
       font: function (context) {
@@ -85,6 +80,16 @@ function LineChart() {
         return Math.round(value * 10) / 10;
       },
     },
+    title: {
+      display: true,
+      text: "Vertical Bar Chart",
+    },
+
+    elements: {
+      bar: {
+        borderWidth: 2,
+      },
+    },
   };
   const data = {
     labels: chartData.map((value) => moment(value.x).format("MMM Do")),
@@ -97,11 +102,12 @@ function LineChart() {
       },
     ],
   };
+
   return (
     <Container>
-      <Line data={data} options={options} />
+      <Bar data={data} options={options} />
     </Container>
   );
-}
+};
 
-export default LineChart;
+export default VerticalBarChart;

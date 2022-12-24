@@ -9,6 +9,9 @@ import LineChart from "../components/charts/LineChart";
 import Sidebar from "../components/sidebar/Sidebar";
 import PieChart from "../components/charts/PieChart";
 import ExchangeRates from "../components/exchangeRates/ExchangeRates";
+import { useSelector } from "react-redux";
+import HorizontalBarChart from "../components/charts/HorizontalBarChart";
+import VerticalBarChart from "../components/charts/VerticalBarChart";
 
 const Container = styled.div`
   width: 100vw;
@@ -83,6 +86,9 @@ const Bottom = styled.div`
 `;
 
 const Home = () => {
+  const chartType = useSelector(
+    (state) => state.selectChartType.selectedChartType
+  );
   return (
     <Container>
       <Wrapper>
@@ -98,7 +104,13 @@ const Home = () => {
               <ChartTypeDropDown />
             </ChartTop>
             <ChartBottom>
-              <LineChart />
+              {chartType === "verticalBarChart" ? (
+                <VerticalBarChart />
+              ) : chartType === "horizontalBarChart" ? (
+                <HorizontalBarChart />
+              ) : (
+                <LineChart />
+              )}
             </ChartBottom>
           </Middle>
           <Bottom>

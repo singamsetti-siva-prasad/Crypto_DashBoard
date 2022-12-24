@@ -14,17 +14,16 @@ const Select = styled.select`
   width: 100%;
   height: 50px;
   overflow-y: scroll;
-
   font-weight: 700;
   background-color: #e6ecff;
   border: none;
   border-radius: 10px;
   font-weight: 500;
   padding: 1%;
+  cursor: pointer;
 `;
 
 const Option = styled.option`
-  text-transform: uppercase;
   font-weight: 400;
 `;
 
@@ -50,7 +49,7 @@ const CryptoCurrencyDropDown = () => {
         {coinList &&
           coinList.map((coin) => (
             <Option value={coin.id} key={coin.id}>
-              {coin.name}
+              {coin.name.toUpperCase()}
             </Option>
           ))}
       </Select>

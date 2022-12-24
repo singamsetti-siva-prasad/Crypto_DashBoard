@@ -103,7 +103,6 @@ function PieChart() {
           let percentage = "$" + ((value * 1000) / sum).toFixed(2);
           return percentage;
         },
-        color: "#fff",
 
         labels: {
           title: {

@@ -6,6 +6,7 @@ import currencyDropDownReducer from "../features/currencyDropDownSlice";
 import cryptoCurrencyDropDownReducer from "../features/cryptoCurrencyDropDownSlice";
 import timeReducer from "../features/timeSlice";
 import exchangeCurrencyDropDownReducer from "../features/exchangeCurrenciesSlice";
+import chartTypeSliceReducer from "../features/chartTypeSlice";
 export const store = configureStore({
   reducer: {
     [coinApi.reducerPath]: coinApi.reducer,
@@ -15,6 +16,7 @@ export const store = configureStore({
     selectCryptoCurrency: cryptoCurrencyDropDownReducer,
     selectTime: timeReducer,
     exchangeCurrency: exchangeCurrencyDropDownReducer,
+    selectChartType: chartTypeSliceReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware()

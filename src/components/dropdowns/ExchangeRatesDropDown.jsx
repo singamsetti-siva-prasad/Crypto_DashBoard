@@ -20,6 +20,7 @@ const Select = styled.select`
   border: none;
   border-radius: 10px;
   padding: 5px;
+  cursor: pointer;
 `;
 
 const Option = styled.option`

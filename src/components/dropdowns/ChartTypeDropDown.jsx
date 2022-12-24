@@ -1,5 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import { setChartType } from "../../features/chartTypeSlice";
 
 const Container = styled.div`
   height: 10vh;
@@ -14,21 +17,30 @@ const Select = styled.select`
   border-radius: 10px;
   font-weight: 500;
   padding: 1%;
+  cursor: pointer;
 `;
 
-const Option = styled.option``;
+const Option = styled.option`
+  font-weight: 400;
+`;
 
 const ChartTypeDropDown = () => {
-  const [first, setfirst] = useState("");
+  const dispatch = useDispatch();
+  const chartType = useSelector(
+    (state) => state.selectChartType.selectedChartType
+  );
+  const handleChange = (e) => {
+    dispatch(setChartType(e.target.value));
+  };
   return (
     <Container>
-      <Select value={first} onChange={(e) => setfirst(e.target.value)}>
-        <Option value="first" disabled>
-          Chart type
+      <Select value={chartType} onChange={handleChange}>
+        <Option value="chartType" disabled>
+          Chart Type
         </Option>
-        <Option value={"line_chart"}>Line</Option>
-        <Option value={"bar_chart_horizontal"}>Bar chart horizontal</Option>
-        <Option value={"bar_chart_vertical"}>Bar chart Vertical</Option>
+        <Option value={"lineChart"}>Line Chart</Option>
+        <Option value={"horizontalBarChart"}>Horizontal Bar Chart</Option>
+        <Option value={"verticalBarChart"}>Vertical Bar chart </Option>
       </Select>
     </Container>
   );

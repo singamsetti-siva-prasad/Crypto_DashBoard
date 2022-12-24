@@ -72,6 +72,7 @@ const Select = styled.select`
   border: none;
   border-radius: 10px;
   font-size: clamp(0.5rem, 0.5vw + 0.5rem, 0.7rem);
+  cursor: pointer;
   @media (max-width: 768px) {
     height: 40px;
     font-size: clamp(0.5rem, 0.8vw + 0.5rem, 0.7rem);
@@ -128,6 +129,7 @@ const Button = styled.button`
   width: 150px;
   min-height: 50px;
   background-color: blue;
+  margin: 1%;
   color: white;
   font-weight: 700;
   border: none;
@@ -191,7 +193,7 @@ const ExchangeRates = () => {
                   {currencyList &&
                     currencyList.map((currencyName) => (
                       <Option value={currencyName} key={currencyName}>
-                        {currencyName}
+                        {currencyName.toUpperCase()}
                       </Option>
                     ))}
                 </Select>
@@ -207,7 +209,7 @@ const ExchangeRates = () => {
                   {currencyList &&
                     currencyList.map((currencyName) => (
                       <Option value={currencyName} key={currencyName}>
-                        {currencyName}
+                        {currencyName.toUpperCase()}
                       </Option>
                     ))}
                 </Select>

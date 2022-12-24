@@ -17,6 +17,10 @@ const Button = styled.button`
   border: none;
   border-radius: 10px;
   padding: 5px;
+  &:hover {
+    background-color: rgb(148, 148, 184);
+  }
+  cursor: pointer;
 `;
 
 const TimeButton = () => {
