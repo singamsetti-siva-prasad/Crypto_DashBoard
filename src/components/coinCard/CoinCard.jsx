@@ -1,54 +1,18 @@
 import React from "react";
-import styled from "styled-components";
 import millify from "millify";
 import ArrowDropUpOutlinedIcon from "@mui/icons-material/ArrowDropUpOutlined";
 import ArrowDropDownOutlinedIcon from "@mui/icons-material/ArrowDropDownOutlined";
-
-const Container = styled.div`
-  width: 100%;
-  height: 100%;
-  border-bottom: 1px solid #d9d9d9;
-`;
-const Wrapper = styled.div`
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-`;
-const InfoContainer = styled.div`
-  display: flex;
-  align-items: center;
-  flex: 8;
-  padding: 5%;
-`;
-const CoinName = styled.p`
-  font-weight: 800;
-  font-size: clamp(1rem, 0.5rem + 0.5vw, 1rem);
-`;
-const MKTCap = styled.p`
-  font-size: clamp(0.7rem, 0.4rem + 0.5vw, 0.8rem);
-  color: gray;
-`;
-const PriceChangePercent = styled.p`
-  flex: 2;
-  color: ${(props) => (props.value < 0 ? "red" : "green")};
-  font-weight: 800;
-  font-size: clamp(0.7rem, 0.4rem + 0.5vw, 0.8rem);
-`;
-const Icon = styled.span``;
-const Img = styled.img`
-  width: clamp(1rem, 0.8rem + 0.5vw, 2rem);
-  height: clamp(1rem, 0.8rem + 0.5vw, 2rem);
-  float: left;
-  shape-outside: circle(50%);
-  margin-right: 2%;
-`;
-const Info = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-`;
+import {
+  Container,
+  Wrapper,
+  InfoContainer,
+  Info,
+  Img,
+  CoinName,
+  MKTCap,
+  Icon,
+  PriceChangePercent,
+} from "./CoinCard.styles";
 
 const CoinCard = ({ coin }) => {
   const Down = coin.price_change_percentage_24h < 0;
