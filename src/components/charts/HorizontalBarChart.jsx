@@ -30,6 +30,7 @@ const Container = styled.div`
 `;
 
 const HorizontalBarChart = () => {
+  //Get selected crypto currency, currency, and selected time from store
   const selectedCoin = useSelector(
     (state) => state.selectCryptoCurrency.selectedcryptoCurrency
   );
@@ -39,6 +40,7 @@ const HorizontalBarChart = () => {
   );
   const selectedTime = useSelector((state) => state.selectTime.selectedTime);
 
+  //fetch data
   const { data: cryptoData, isFetching } = useGetMarketDataQuery({
     coin: selectedCoin,
     currency: selectedCurrency,
@@ -53,6 +55,7 @@ const HorizontalBarChart = () => {
     y: value[1],
   }));
 
+  //chart options
   const options = {
     responsive: true,
     animation: {
@@ -89,6 +92,8 @@ const HorizontalBarChart = () => {
       },
     },
   };
+
+  //chart data
   const data = {
     labels: chartData.map((value) => moment(value.x).format("MMM Do")),
     datasets: [

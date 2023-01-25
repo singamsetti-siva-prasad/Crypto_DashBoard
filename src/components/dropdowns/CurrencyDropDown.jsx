@@ -31,6 +31,7 @@ const Option = styled.option`
 `;
 
 const CurrencyDropDown = () => {
+  //Get selected currency from store
   const currency = useSelector(
     (state) => state.selectCurrency.selectedCurrency
   );
@@ -40,7 +41,8 @@ const CurrencyDropDown = () => {
     dispatch(setCurrency(e.target.value));
   };
 
-  const { data: currencyList, isFetching } = useGetAllCurrenciesQuery();
+  //Fetch currency list data
+  const { data: currencyList } = useGetAllCurrenciesQuery();
 
   return (
     <Container>

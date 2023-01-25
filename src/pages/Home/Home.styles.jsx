@@ -16,6 +16,12 @@ export const Wrapper = styled.div`
   }
 `;
 
+export const NavbarContainer = styled.div`
+  background-color: red;
+  height: 10vh;
+  width: 100vw;
+`;
+
 export const Left = styled.div`
   flex: 75%;
   height: 100%;

@@ -51,6 +51,7 @@ const Bottom = styled.div`
 `;
 
 function PieChart() {
+  //fetch data
   const { data: marketData, isFetching } = useGetMarketsQuery();
   if (isFetching) return "Loading....";
 
@@ -70,6 +71,7 @@ function PieChart() {
     ],
   };
 
+  //chart options
   const options = {
     responsive: true,
     maintainAspectRatio: false,

@@ -20,7 +20,7 @@ import {
 } from "./ExchangeRates.styles";
 
 const ExchangeRates = () => {
-  const [enteredValue, setEnteredValue] = useState("0");
+  const [enteredValue, setEnteredValue] = useState("");
   const [sellCurrency, setSellCurrency] = useState("btc");
   const [buyCurrency, setBuyCurrency] = useState("btc");
   const [convertedValue, setConvertedValue] = useState(" ");
@@ -31,7 +31,9 @@ const ExchangeRates = () => {
   const handleBuyChange = (e) => {
     setBuyCurrency(e.target.value);
   };
-  const { data: currencyList, isLoading } = useGetAllCurrenciesQuery();
+
+  //Fetch currency list data
+  const { data: currencyList } = useGetAllCurrenciesQuery();
 
   const { data: exchangeData, isFetching } = useGetExchangeDataQuery();
 

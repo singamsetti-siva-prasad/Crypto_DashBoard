@@ -7,7 +7,10 @@ import cryptoCurrencyDropDownReducer from "../features/cryptoCurrencyDropDownSli
 import timeReducer from "../features/timeSlice";
 import exchangeCurrencyDropDownReducer from "../features/exchangeCurrenciesSlice";
 import chartTypeSliceReducer from "../features/chartTypeSlice";
+
+//configure store
 export const store = configureStore({
+  //reducers
   reducer: {
     [coinApi.reducerPath]: coinApi.reducer,
     [currencyApi.reducerPath]: currencyApi.reducer,

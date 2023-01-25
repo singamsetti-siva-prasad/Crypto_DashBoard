@@ -26,6 +26,8 @@ const Option = styled.option`
 
 const ChartTypeDropDown = () => {
   const dispatch = useDispatch();
+
+  //Get Chart type from store
   const chartType = useSelector(
     (state) => state.selectChartType.selectedChartType
   );

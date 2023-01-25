@@ -18,7 +18,7 @@ const CoinCard = ({ coin }) => {
   const Down = coin.price_change_percentage_24h < 0;
 
   return (
-    <Container>
+    <Container data-test="coincard-div">
       <Wrapper>
         <InfoContainer>
           <Img src={coin.image} />

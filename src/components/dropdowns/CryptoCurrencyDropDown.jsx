@@ -34,7 +34,8 @@ const CryptoCurrencyDropDown = () => {
 
   const dispatch = useDispatch();
 
-  const { data: coinList, isFetching } = useGetAllCoinsQuery();
+  //Fetch coin list data
+  const { data: coinList } = useGetAllCoinsQuery();
 
   const handleChange = (e) => {
     dispatch(setCryptoCurrency(e.target.value));

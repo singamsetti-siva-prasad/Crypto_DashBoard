@@ -22,6 +22,7 @@ import {
   Bottom,
   Right,
 } from "./Home.styles";
+import Navbar from "../../components/navbar/Navbar";
 
 const Home = () => {
   const chartType = useSelector(
@@ -29,6 +30,7 @@ const Home = () => {
   );
   return (
     <Container>
+      <Navbar />
       <Wrapper>
         <Left>
           <Top>

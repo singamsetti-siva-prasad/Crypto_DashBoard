@@ -7,11 +7,11 @@ export const Container = styled.div`
 
 export const Button = styled.button`
   width: 50px;
-  height: 25px;
+  height: 30px;
   background-color: #e6faff;
   margin: 1%;
   border: none;
-  border-radius: 10px;
+  border-radius: 5px;
   padding: 5px;
   &:hover {
     background-color: rgb(148, 148, 184);

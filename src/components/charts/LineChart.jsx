@@ -32,6 +32,7 @@ const Container = styled.div`
 `;
 
 function LineChart() {
+  //Get selected crypto currency, currency, and selected time from store
   const selectedCoin = useSelector(
     (state) => state.selectCryptoCurrency.selectedcryptoCurrency
   );
@@ -41,6 +42,7 @@ function LineChart() {
   );
   const selectedTime = useSelector((state) => state.selectTime.selectedTime);
 
+  //fetch data
   const { data: cryptoData, isFetching } = useGetMarketDataQuery({
     coin: selectedCoin,
     currency: selectedCurrency,
@@ -56,6 +58,7 @@ function LineChart() {
     y: value[1],
   }));
 
+  //chart options
   const options = {
     responsive: true,
     animation: {
@@ -85,6 +88,8 @@ function LineChart() {
       },
     },
   };
+
+  //chart data
   const data = {
     labels: chartData.map((value) => moment(value.x).format("MMM Do")),
     datasets: [

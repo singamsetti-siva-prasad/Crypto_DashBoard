@@ -30,6 +30,8 @@ const Option = styled.option`
 
 const ExchangeDropDown = () => {
   const dispatch = useDispatch();
+
+  //Get selected currency from store
   const currency = useSelector(
     (state) => state.selectCurrency.selectedCurrency
   );
@@ -38,7 +40,8 @@ const ExchangeDropDown = () => {
     dispatch(setCurrency(e.target.value));
   };
 
-  const { data: currencyList, isFetching } = useGetAllCurrenciesQuery();
+  //Fetch currency list data
+  const { data: currencyList } = useGetAllCurrenciesQuery();
 
   return (
     <Container>

@@ -4,6 +4,7 @@ import CoinCard from "../coinCard/CoinCard";
 import { Container, Wrapper, Title, Coins } from "./Sidebar.styles";
 
 const Sidebar = () => {
+  //Fetch market data
   const { data, isFetching } = useGetMarketsQuery();
   if (isFetching) return "Loading...";
 

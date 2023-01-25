@@ -14,6 +14,7 @@ const Searchbar = () => {
 
   const dispatch = useDispatch();
 
+  //Fetch coin list data
   const { data: coinList } = useGetAllCoinsQuery();
 
   const handleClick = (e) => {
