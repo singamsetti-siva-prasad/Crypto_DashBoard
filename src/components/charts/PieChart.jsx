@@ -4,6 +4,7 @@ import { useGetMarketsQuery } from "../../features/api/coinApiSlice";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Pie } from "react-chartjs-2";
 import ChartDataLabels from "chartjs-plugin-datalabels";
+import SyncLoader from "react-spinners/SyncLoader";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -28,7 +29,7 @@ const Wrapper = styled.div`
 
 const Top = styled.div`
   display: flex;
-  flex: 20%;
+  height: 20%;
   align-items: center;
   justify-content: space-between;
 `;
@@ -45,25 +46,27 @@ const TotalValue = styled.p`
   font-size: calc(0.5vw + 0.5rem);
 `;
 const Bottom = styled.div`
-  flex: 80%;
   width: 100%;
-  height: 100%;
+  height: 80%;
+`;
+const ChartWrapper = styled.div`
+  width: 100%;
+  height: 200px;
 `;
 
 function PieChart() {
   //fetch data
   const { data: marketData, isFetching } = useGetMarketsQuery();
-  if (isFetching) return "Loading....";
 
   const data = {
     labels: marketData?.slice(0, 3).map((coin) => coin.name),
     datasets: [
       {
-        data: marketData.slice(0, 3).map((coin) => coin.total_volume),
+        data: marketData?.slice(0, 3).map((coin) => coin.total_volume),
         backgroundColor: [
-          "rgb(128, 0, 128)",
-          "rgb(0, 32, 128)",
-          "rgb(128, 128, 0)",
+          "rgb(236, 107, 86)",
+          "rgb(255, 193, 84)",
+          "rgb(71, 179, 156)",
         ],
         borderWidth: 1,
         borderColor: "rgb(255, 255, 255)",
@@ -83,7 +86,7 @@ function PieChart() {
         position: "right",
         align: "center",
         display: true,
-        padding: 30,
+        padding: 10,
         labels: {
           color: "rgb(67, 67, 177)",
 
@@ -128,7 +131,10 @@ function PieChart() {
           </TotalValue>
         </Top>
         <Bottom>
-          <Pie data={data} options={options} plugins={[ChartDataLabels]} />
+          <SyncLoader color="rgb(0, 51, 102)" size={10} loading={isFetching} />
+          <ChartWrapper>
+            <Pie data={data} options={options} plugins={[ChartDataLabels]} />
+          </ChartWrapper>
         </Bottom>
       </Wrapper>
     </Container>

@@ -3,6 +3,8 @@ import { useGetMarketDataQuery } from "../../features/api/marketDataApiSlice";
 import moment from "moment/moment";
 import styled from "styled-components";
 import { useSelector } from "react-redux";
+import SyncLoader from "react-spinners/SyncLoader";
+
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -46,7 +48,6 @@ const HorizontalBarChart = () => {
     currency: selectedCurrency,
     time: selectedTime,
   });
-  if (isFetching) return "Loading....";
 
   const coinsData = cryptoData?.prices;
 
@@ -100,14 +101,15 @@ const HorizontalBarChart = () => {
       {
         label: `${selectedCoin} vs ${selectedCurrency}`,
         data: chartData.map((val) => val.y),
-        borderColor: "rgb(148, 148, 184)",
-        backgroundColor: "rgb(77, 77, 255)",
+        borderColor: "rgb(0, 204, 0)",
+        backgroundColor: "rgb(0, 128, 0)",
       },
     ],
   };
 
   return (
     <Container>
+      <SyncLoader color="rgb(0, 51, 102)" size={10} loading={isFetching} />
       <Bar data={data} options={options} />
     </Container>
   );

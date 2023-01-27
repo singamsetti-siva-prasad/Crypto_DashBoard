@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  height: 100%;
+  height: 135vh;
   width: 90%;
   border: none;
   border-radius: 10px;
@@ -30,4 +30,6 @@ export const Title = styled.p`
 export const Coins = styled.div`
   width: 100%;
   flex: 75%;
+  display: flex;
+  flex-direction: column;
 `;

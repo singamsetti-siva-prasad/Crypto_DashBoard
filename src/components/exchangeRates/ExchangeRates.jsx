@@ -37,8 +37,6 @@ const ExchangeRates = () => {
 
   const { data: exchangeData, isFetching } = useGetExchangeDataQuery();
 
-  if (isFetching) return "Loading......";
-
   function ConversionFormula(enteredValue) {
     const convertedValue = (
       (parseFloat(enteredValue) *

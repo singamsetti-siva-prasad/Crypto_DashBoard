@@ -2,6 +2,8 @@ import React from "react";
 import { useGetMarketDataQuery } from "../../features/api/marketDataApiSlice";
 import moment from "moment/moment";
 import { useSelector } from "react-redux";
+import SyncLoader from "react-spinners/SyncLoader";
+
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -49,11 +51,9 @@ function LineChart() {
     time: selectedTime,
   });
 
-  if (isFetching) return "Loading....";
-
   const coinsData = cryptoData?.prices;
 
-  const chartData = coinsData.map((value) => ({
+  const chartData = coinsData?.map((value) => ({
     x: value[0],
     y: value[1],
   }));
@@ -91,18 +91,19 @@ function LineChart() {
 
   //chart data
   const data = {
-    labels: chartData.map((value) => moment(value.x).format("MMM Do")),
+    labels: chartData?.map((value) => moment(value.x).format("MMM Do")),
     datasets: [
       {
         label: `${selectedCoin} vs ${selectedCurrency}`,
-        data: chartData.map((val) => val.y),
-        borderColor: "rgb(148, 148, 184)",
-        backgroundColor: "rgb(77, 77, 255)",
+        data: chartData?.map((val) => val.y),
+        borderColor: "rgb(0, 204, 0)",
+        backgroundColor: "rgb(0, 128, 0)",
       },
     ],
   };
   return (
     <Container>
+      <SyncLoader color="rgb(0, 51, 102)" size={10} loading={isFetching} />
       <Line data={data} options={options} />
     </Container>
   );

@@ -67,11 +67,8 @@ export const ChartBottom = styled.div`
 
 export const Bottom = styled.div`
   width: 100%;
-  height: 100%;
   flex: 20%;
   display: flex;
-  justify-content: space-around;
-  align-items: center;
   @media (max-width: 424px) {
     flex-direction: column;
     align-items: center;

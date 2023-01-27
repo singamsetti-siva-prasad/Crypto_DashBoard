@@ -34,8 +34,8 @@ export const PriceChangePercent = styled.p`
 `;
 export const Icon = styled.span``;
 export const Img = styled.img`
-  width: clamp(1rem, 0.8rem + 0.5vw, 2rem);
-  height: clamp(1rem, 0.8rem + 0.5vw, 2rem);
+  width: clamp(1.2em, 0.8rem + 0.5vw, 2rem);
+  height: clamp(1.2rem, 0.8rem + 0.5vw, 2rem);
   float: left;
   shape-outside: circle(50%);
   margin-right: 2%;

@@ -18,11 +18,12 @@ export const Wrapper = styled.div`
   padding: 2%;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
 `;
 export const Top = styled.p`
   font-weight: 800;
   flex: 2;
+  margin: 5px;
   font-size: clamp(1rem, 1vw + 0.5rem, 1.5rem);
   @media (max-width: 768px) {
     font-size: clamp(1rem, 0.8vw + 0.5rem, 1.5rem);
@@ -66,7 +67,7 @@ export const Select = styled.select`
   height: 50px;
   overflow: scroll;
   font-weight: 700;
-  background-color: #d9d9d9;
+  background-color: #e6ecff;
   border: none;
   border-radius: 10px;
   font-size: clamp(0.5rem, 0.5vw + 0.5rem, 0.7rem);
