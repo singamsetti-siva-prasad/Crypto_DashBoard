@@ -74,6 +74,7 @@ function LineChart() {
       display: true,
       text: "Line Chart",
     },
+
     datalabels: {
       font: function (context) {
         var width = context.chart.width;
@@ -94,7 +95,9 @@ function LineChart() {
     labels: chartData?.map((value) => moment(value.x).format("MMM Do")),
     datasets: [
       {
-        label: `${selectedCoin} vs ${selectedCurrency}`,
+        label: selectedCoin
+          ? `${selectedCurrency.toUpperCase()} vs ${selectedCoin.toUpperCase()}  `
+          : selectedCurrency.toUpperCase(),
         data: chartData?.map((val) => val.y),
         borderColor: "rgb(0, 204, 0)",
         backgroundColor: "rgb(0, 128, 0)",

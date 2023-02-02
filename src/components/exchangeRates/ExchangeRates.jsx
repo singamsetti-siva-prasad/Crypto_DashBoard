@@ -93,7 +93,7 @@ const ExchangeRates = () => {
           <Right>
             <Input
               data-testid="exchangeInput"
-              placeholder="0"
+              placeholder="Enter value"
               value={enteredValue}
               onChange={(e) => setEnteredValue(e.target.value)}
             />
