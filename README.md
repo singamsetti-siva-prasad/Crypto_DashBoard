@@ -1,4 +1,4 @@
-# Crypto Currency Dashboard
+# Cryptocurrency Dashboard
 Crypto Currency Dashboard
 is a web application that displays the up to date crypto currency data provided by CoinGecko api.
 Built using ReactJS, Redux Toolkit, Chart.js, Styled Components
