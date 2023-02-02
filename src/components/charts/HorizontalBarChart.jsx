@@ -99,8 +99,10 @@ const HorizontalBarChart = () => {
     labels: chartData.map((value) => moment(value.x).format("MMM Do")),
     datasets: [
       {
-        label: `${selectedCoin} vs ${selectedCurrency}`,
-        data: chartData.map((val) => val.y),
+        label: selectedCoin
+          ? `${selectedCurrency.toUpperCase()} vs ${selectedCoin.toUpperCase()}  `
+          : selectedCurrency.toUpperCase(),
+        data: chartData?.map((val) => val.y),
         borderColor: "rgb(0, 204, 0)",
         backgroundColor: "rgb(0, 128, 0)",
       },
