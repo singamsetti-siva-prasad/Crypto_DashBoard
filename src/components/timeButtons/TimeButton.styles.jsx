@@ -13,8 +13,13 @@ export const Button = styled.button`
   border: 1px solid lightgray;
   border-radius: 5px;
   padding: 5px;
+  cursor: pointer;
+
   &:hover {
     background-color: rgb(148, 148, 184);
   }
-  cursor: pointer;
+  @media (max-width: 540px) {
+    width: 30px;
+    height: 30px;
+  }
 `;
